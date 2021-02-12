@@ -27,6 +27,13 @@ namespace ChatApp.Controllers
             return View();
         }
 
+        /// <summary>
+        ///  test 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
