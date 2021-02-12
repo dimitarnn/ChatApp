@@ -1,0 +1,30 @@
+﻿@model Chat
+
+<div id="chatBody" class="chat-body">
+    @foreach (var message in Model.Messages)
+    {
+        <div class="message">
+            <header>@message.Name:</header>
+            <p>@message.Text</p>
+            <footer>@message.TimeSpan</footer>
+        </div>
+    }
+</div>
+<div class="chat-input">
+    <input id="chatId" type="hidden" name="chatId" value="@Model.Id" />
+    <input id="roomName" type="hidden" name="roomName" value="@Model.Name" />
+    <input id="user" type="hidden" value="@User.Identity.Name" />
+    <input id="message" type="text" name="message" />
+    <button id="sendButton" type="submit">Send</button>
+</div>
+
+@section scripts {
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/aspnet-signalr/1.1.4/signalr.min.js" integrity="sha512-hqwtOj6waHZZoLRoJoLn0tq34JS97tR1QmhM69uvyrt3LVBiR1o0xeOVAskjUFL1L1fahQH2W7IdcMaFbqCEaw==" crossorigin="anonymous"></script>*@
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    @*<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>*@
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="~/js/chat.js"></script>
+}
